@@ -1,0 +1,14 @@
+.ArenaBlock {
+    float:left;
+}
+
+.ArenaWrapper {
+    margin: auto;
+    border: 1px solid black;
+}
+
+.ScoreWrapper {
+    margin: auto;
+    width: 150px;
+    text-align: center;
+}
