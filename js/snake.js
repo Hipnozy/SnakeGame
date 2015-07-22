@@ -18,11 +18,11 @@ Array.prototype.findById = function(id, deleteRecord) {
 		}
 	}
 	return false;
-}
+};
 
 window.onresize = function () {
     buildArena(false);
-}
+};
 
 function buildArena(firstTime) {
     var divID = 0, objDiv;
@@ -59,15 +59,15 @@ function Section(properties) {
 
 	this.draw = function() {
 		this.changeColor(this.color);
-	}
+	};
 
 	this.erase = function() {
 		this.changeColor("");
-	}
+	};
 	
 	this.changeColor = function(color) {
 		this.div.style.backgroundColor = color;
-	}
+	};
 }
 
 function Fruit(properties) {
@@ -180,23 +180,23 @@ Snake.prototype = {
 
 	//Spawn the fruit on the arena when the last one is eaten
 	,spawnFruit : function() {	
-		var fruitID;
-		
-		while (true) {
-		    fruitID = Math.ceil(Math.random() * 400);
-
-		    if (!this.sections.findById(fruitID, false)) {
-		        break;
-            }
-		}
-
 		var fruit = new Fruit({
-		    id: fruitID,
+		    id: this.getRandomFruitID(),
             color: getRandomColor()
 		});
 
 		fruit.draw();
 		this.lastFruit = fruit.id;
+	}
+	
+	,getRandomFruitID: function() {
+		while (true) {
+		    var fruitID = Math.ceil(Math.random() * 400);
+
+		    if (!this.sections.findById(fruitID, false)) {
+		        return fruitID;
+            }
+		}
 	}
 
     //Accelerate the speed of the snake, according to the current speed
@@ -221,4 +221,4 @@ Snake.prototype = {
 		alert("You lose bro.\nScore: " + this.score);
 		location.reload();
 	}
-}
+};

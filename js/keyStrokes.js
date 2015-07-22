@@ -9,22 +9,18 @@ var EDir = {
     , a: 65
     , s: 83
     , d: 68
-}
+};
 
 function KeyInput(){}
 
 KeyInput.lastCursor = 1;
 KeyInput.lastDirection = EDir.right;
 
-KeyInput.startListening = function()
-{
-    window.onkeydown = function(e)
-    {
+KeyInput.startListening = function() {
+    window.onkeydown = function(e) {
         var keyCode = e.which ? e.which : e.keyCode;
-        if (KeyInput.lastDirection === 1 || KeyInput.lastDirection === -1)
-        {
-            switch (keyCode)
-            {
+        if (KeyInput.lastDirection === 1 || KeyInput.lastDirection === -1) {
+            switch (keyCode) {
                 case EDir.up:
                 case EDir.w:
                     KeyInput.lastCursor = -20;
@@ -36,11 +32,8 @@ KeyInput.startListening = function()
                 default:
                     return;
             }
-        }
-        else (KeyInput.lastDirection === 20 || KeyInput.lastDirection === -20)
-        {
-            switch (keyCode)
-            {
+        } else if(KeyInput.lastDirection === 20 || KeyInput.lastDirection === -20) {
+            switch (keyCode) {
                 case EDir.right:
                 case EDir.d:
                     KeyInput.lastCursor = 1;
@@ -53,11 +46,10 @@ KeyInput.startListening = function()
                     return;
             }
         }
-	}
-}
+	};
+};
 
-KeyInput.getLastCursor = function(id)
-{
+KeyInput.getLastCursor = function(id) {
 	var dir = KeyInput.lastCursor;
 
 	if (id % 20 === 0 && dir === 1)
@@ -72,4 +64,4 @@ KeyInput.getLastCursor = function(id)
 	KeyInput.lastDirection = KeyInput.lastCursor;
 
 	return id + dir;
-}
+};
