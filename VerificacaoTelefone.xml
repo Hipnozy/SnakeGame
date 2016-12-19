@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<Response>
-  <Gather numDigits="5" timeout="20" finishOnKey="*">
-    <Say voice="alice" language="pt-BR">Digite os quatro dígitos que aparecem em sua tela no Pague Veloz e aperte estrela para terminar.</Say>
-  </Gather>
-</Response>
